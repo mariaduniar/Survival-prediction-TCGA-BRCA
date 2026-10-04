@@ -31,7 +31,7 @@ The analysis consisted of the following steps:
 3. Definition of three-year mortality risk groups
 4. Exploratory analysis of transcriptomic and mutational profiles
 5. Train/test split
-6. Feature selection
+6. Feature selection for each omic modality 
 7. Machine learning model training
 8. Evaluation and comparison of predictive models
 
@@ -40,15 +40,12 @@ The analysis consisted of the following steps:
 ```text
 R/                  Analysis scripts
 
-data/               Input and processed data generated through TCGAbiolinks
-
 results/
   figures/          Figures generated during the analysis
-  tables/           Results tables
 
 docs/               Master's thesis
+```
 
-## ```markdown
 ### R scripts
 
 | Script | Description |
