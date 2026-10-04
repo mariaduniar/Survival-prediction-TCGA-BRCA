@@ -61,12 +61,12 @@ docs/               Master's thesis
 
 The main R packages used in this project include:
 
-- 'TCGAbiolinks'
-- 'DESeq2'
-- 'ggplot2'
-- 'pheatmap'
-- 'glmnet'
-- 'caret'
-- 'pROC'
-- 'fgsea'
-- 'msigdbr'
+- `TCGAbiolinks`
+- `DESeq2`
+- `ggplot2`
+- `pheatmap`
+- `glmnet`
+- `caret`
+- `pROC`
+- `fgsea`
+- `msigdbr`
