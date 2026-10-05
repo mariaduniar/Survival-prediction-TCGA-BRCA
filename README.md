@@ -29,9 +29,9 @@ The analysis consisted of the following steps:
 1. Data acquisition from TCGA-BRCA
 2. Clinical and molecular data preprocessing
 3. Definition of three-year mortality risk groups
-4. Exploratory analysis of transcriptomic and mutational profiles
+4. Exploratory analysis of transcriptomic (PCA, clustering) and mutational profiles. 
 5. Train/test split
-6. Feature selection for each omic modality 
+6. Feature selection for each omic modality in the training set
 7. Machine learning model training
 8. Evaluation and comparison of predictive models
 
@@ -42,6 +42,7 @@ R/                  Analysis scripts
 
 results/
   figures/          Figures generated during the analysis
+  tables/           Tables and relevant metrics generated during the analysis
 
 docs/               Master's thesis
 ```
@@ -51,11 +52,12 @@ docs/               Master's thesis
 | Script | Description |
 |---|---|
 | `01_data_adquisition.R` | Data adquisition from TCGA|
-| `01_data_preprocessing.R` | Data preprocessing |
-| `02_EDA.R` | Exploratory data analysis |
-| `07_ML_expression.R` | Feature selection and expression-based models |
-| `08_ML_mutations.R` | Feature selection and mutation-based models |
-| `09_ML_integrated.R` | Integrated models |
+| `02_data_preprocessing.R` | Data preprocessing |
+| `03_EDA.R` | Exploratory data analysis |
+| `04_ML_expression.R` | Feature selection (Differential expression analysis) and expression-based models |
+| `05_GSEA.R` | Gene Set Enrichment Analysis |
+| `06_ML_mutations.R` | Feature selection (LASSO) and mutation-based models |
+| `07_ML_integrated.R` | Integrated models |
 
 ## Main R Packages
 
