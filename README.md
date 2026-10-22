@@ -1,6 +1,6 @@
 # TCGA-BRCA Survival Prediction Using Machine Learning
 Machine learning-based prediction of three-year mortality risk in breast cancer using transcriptomic and somatic mutation data.
-This proyect is part of a Master's thesis in Bioinformatics.
+This project is part of a Master's thesis in Bioinformatics.
 
 ## Overview
 
@@ -13,8 +13,7 @@ Three machine learning approaches were evaluated:
 - Radial-kernel Support Vector Machine (SVM)
 - Random Forest
 
-Models were trained using gene expression data, somatic mutation data, and
-an integrated multi-omic dataset.
+Models were trained using gene expression data, somatic mutation data, and an integrated multi-omic dataset based on an early-fusion strategy.
 
 ## Dataset
 
@@ -28,11 +27,11 @@ The analysis consisted of the following steps:
 
 1. Data acquisition from TCGA-BRCA
 2. Clinical and molecular data preprocessing
-3. Definition of three-year mortality risk groups
-4. Exploratory analysis of transcriptomic (PCA, clustering) and mutational profiles. 
+3. Definition of three-year mortality risk groups from clinical data
+4. Exploratory analysis of transcriptomic (PCA, clustering) and mutational profiles 
 5. Train/test split
 6. Feature selection for each omic modality in the training set
-7. Machine learning model training
+7. Training of machine learning models for individual modalities and the integrated dataset
 8. Evaluation and comparison of predictive models
 
 ## Repository Structure
@@ -51,13 +50,21 @@ docs/               Master's thesis
 
 | Script | Description |
 |---|---|
-| `01_data_adquisition.R` | Data adquisition from TCGA|
+| `01_data_adquisition.R` | Data acquisition from TCGA|
 | `02_data_preprocessing.R` | Data preprocessing |
 | `03_EDA.R` | Exploratory data analysis |
 | `04_ML_expression.R` | Feature selection (Differential expression analysis) and expression-based models |
 | `05_GSEA.R` | Gene Set Enrichment Analysis |
 | `06_ML_mutations.R` | Feature selection (LASSO) and mutation-based models |
 | `07_ML_integrated.R` | Integrated models |
+
+## Key findings 
+
+Integration of transcriptomic and mutation features produced the best model performance, yielding an AUC of 0.671 for the radial SVM. However, the integrated model did not show a clear improvement over the transcriptomic and mutational models alone, with an AUC of 0.663 and 0.624 for the same algorithm.
+
+Low sensitivity values ​​were obtained (between 8% and 25%) for both the integrated model and the model based on gene expression. For the mutational models, sensitivity was 0. These values ​​reflect the limitations posed by imbalanced classes, given that there were only 12 events in the test set (n=88).
+
+![ROC curve for the integrated models] (results/figures/ROC_multimodal.png)
 
 ## Main R Packages
 
@@ -66,9 +73,11 @@ The main R packages used in this project include:
 - `TCGAbiolinks`
 - `DESeq2`
 - `ggplot2`
+- `maftools`
 - `pheatmap`
 - `glmnet`
 - `caret`
 - `pROC`
 - `fgsea`
 - `msigdbr`
+
