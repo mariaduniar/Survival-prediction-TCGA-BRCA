@@ -64,7 +64,7 @@ Integration of transcriptomic and mutation features produced the best model perf
 
 Low sensitivity values ​​were obtained (between 8% and 25%) for both the integrated model and the model based on gene expression. For the mutational models, sensitivity was 0. These values ​​reflect the limitations posed by imbalanced classes, given that there were only 12 events in the test set (n=88).
 
-![ROC curve for the integrated models] (results/figures/ROC_multimodal.png)
+![ROC curve for the integrated models](results/figures/ROC_multimodal.png)
 
 ## Main R Packages
 
